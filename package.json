@@ -7,7 +7,7 @@
 			"url": "https://github.com/kvandeh/autosign"
 		},
 	"icon": "logo.png",
-	"description": "",
+	"description": "Automatically adds a date and name on top of every file which is automatically converted to a comment when edited.",
 	"version": "0.1.1",
 	"engines": {
 		"vscode": "^1.100.0"
