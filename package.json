@@ -1,103 +1,107 @@
 {
-  "name": "autosign",
-  "displayName": "autoSign",
-  "publisher": "kcvdh",
-  "icon": "logo.png",
-  "description": "",
-  "version": "0.1.1",
-  "engines": {
-    "vscode": "^1.100.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onCommand:myExtension.insertText",
-    "onLanguage:plaintext",
-    "onCommand:myExtension.addComment",
-	"onStartupFinished"
-  ],
-  "main": "./extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "autosign.sign",
-        "title": "Add Signature"
-      }
-    ],
-    "configuration": {
-      "title": "autoSign settings",
-      "properties": {
-        "autoSign.email": {
-          "type": "string",
-          "default": "you@example.com",
-          "description": "The email address to use."
-        },
-        "autoSign.ignore": {
-          "type": "array",
-          "description": "Glob patterns to ignore. This will only match when automatically signing on updates, the autoSign.sign command will always work in any file.",
-          "default": [
-            "**/*.png",
-            "**/*.jpg",
-			"**/*.txt",
-            "**/.git/**",
-			"**/*.json",
-			"**/LICENSE",
-			"**/license"
-          ],
-          "items": {
-            "type": "string"
-          }
-        },
-        "autoSign.licensePreset": {
-          "type": "string",
-          "enum": [
-            "MIT",
-            "Apache-2.0",
-            "Custom"
-          ],
-          "default": "MIT",
-          "description": "Select a license preset or choose Custom to provide your own license text."
-        },
-        "autoSign.customLicenseText": {
-          "type": "string",
-          "default": "Copyright <YEAR> <HOLDER>",
-          "description": "Add a custom license, you can use <YEAR> for the current year and <HOLDER> for your set email.",
-          "scope": "workspace",
-		  "editPresentation": "multilineText"
-        },
-		"autoSign.signDelay": {
-			"type": "integer",
-			"default": 15,
-			"minimum": 1,
-			"maximum": 100,
-			"description": "Adjust the timeout required before automatically signing in seconds.",
-			"scope": "window"
+	"name": "autosign",
+	"displayName": "autoSign",
+	"publisher": "kcvdh",
+	"repository": {
+			"type": "git",
+			"url": "https://github.com/kvandeh/autosign"
 		},
-		"autoSign.canAutoSign": {
-			"type": "boolean",
-			"description": "Turn on/off automatically signing on updates.",
-			"scope": "window",
-			"default": true
+	"icon": "logo.png",
+	"description": "",
+	"version": "0.1.1",
+	"engines": {
+		"vscode": "^1.100.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:myExtension.insertText",
+		"onLanguage:plaintext",
+		"onCommand:myExtension.addComment",
+		"onStartupFinished"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+		{
+			"command": "autosign.sign",
+			"title": "Add Signature"
 		}
-      }
-    }
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "vscode-test"
-  },
-  "devDependencies": {
-    "@types/mocha": "^10.0.10",
-    "@types/node": "20.x",
-    "@types/vscode": "^1.100.0",
-    "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.5.2",
-    "eslint": "^9.25.1"
-  },
-  "dependencies": {
-    "minimatch": "^10.0.1",
-    "vsce": "^2.15.0"
-  }
+		],
+		"configuration": {
+		"title": "autoSign settings",
+		"properties": {
+			"autoSign.email": {
+			"type": "string",
+			"default": "you@example.com",
+			"description": "The email address to use."
+			},
+			"autoSign.ignore": {
+			"type": "array",
+			"description": "Glob patterns to ignore. This will only match when automatically signing on updates, the autoSign.sign command will always work in any file.",
+			"default": [
+				"**/*.png",
+				"**/*.jpg",
+				"**/*.txt",
+				"**/.git/**",
+				"**/*.json",
+				"**/LICENSE",
+				"**/license"
+			],
+			"items": {
+				"type": "string"
+			}
+			},
+			"autoSign.licensePreset": {
+			"type": "string",
+			"enum": [
+				"MIT",
+				"Apache-2.0",
+				"Custom"
+			],
+			"default": "MIT",
+			"description": "Select a license preset or choose Custom to provide your own license text."
+			},
+			"autoSign.customLicenseText": {
+			"type": "string",
+			"default": "Copyright <YEAR> <HOLDER>",
+			"description": "Add a custom license, you can use <YEAR> for the current year and <HOLDER> for your set email.",
+			"scope": "workspace",
+			"editPresentation": "multilineText"
+			},
+			"autoSign.signDelay": {
+				"type": "integer",
+				"default": 15,
+				"minimum": 1,
+				"maximum": 100,
+				"description": "Adjust the timeout required before automatically signing in seconds.",
+				"scope": "window"
+			},
+			"autoSign.canAutoSign": {
+				"type": "boolean",
+				"description": "Turn on/off automatically signing on updates.",
+				"scope": "window",
+				"default": true
+			}
+		}
+		}
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "vscode-test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^10.0.10",
+		"@types/node": "20.x",
+		"@types/vscode": "^1.100.0",
+		"@vscode/test-cli": "^0.0.10",
+		"@vscode/test-electron": "^2.5.2",
+		"eslint": "^9.25.1"
+	},
+	"dependencies": {
+		"minimatch": "^10.0.1",
+		"vsce": "^2.15.0"
+	}
 }

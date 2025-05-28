@@ -3,6 +3,10 @@
 
 # v0.1
 
+## v0.1.2
+- Better README
+- Add git to package.json
+
 ## v0.1.1
 - Added image
 
