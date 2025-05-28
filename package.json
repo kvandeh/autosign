@@ -8,7 +8,7 @@
 		},
 	"icon": "logo.png",
 	"description": "Automatically adds a date and name on top of every file which is automatically converted to a comment when edited.",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"engines": {
 		"vscode": "^1.100.0"
 	},
